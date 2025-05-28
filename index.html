@@ -4,144 +4,886 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Sisir Kumar Rajbongshi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
+        :root {
+            --primary: #2c3e50;       /* Dark blue */
+            --secondary: #3498db;     /* Accent blue */
+            --accent: #e74c3c;        /* Red */
+            --light-bg: #f8f9fa;      /* Light mode background */
+            --dark-bg: #1a1a2e;       /* Dark mode background */
+            --card-light: #fff;       /* Light mode cards */
+            --card-dark: #16213e;     /* Dark mode cards */
+            --text-light: #fff;       /* Light text */
+            --text-dark: #333;        /* Dark text */
+            --text-muted: #666;       /* Muted text */
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --light-bg: var(--dark-bg);
+            --card-light: var(--card-dark);
+            --text-dark: #f0f0f0;
+            --text-muted: #aaa;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            box-sizing: border-box;
+            transition: var(--transition);
         }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        /* Header */
         header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 1rem 0;
+            background: linear-gradient(135deg, var(--primary) 0%, #1a2a3a 100%);
+            color: var(--text-light);
+            padding: 1.5rem 0;
             text-align: center;
+            box-shadow: var(--shadow);
             position: relative;
         }
+
         header h1 {
-            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
         }
+
+        header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
         header img {
-            position: absolute;
-            top: 10px;
-            right: 10px;
+            width: 120px;
+            height: 120px;
+            border: 4px solid var(--text-light);
             border-radius: 50%;
-            width: 100px;
-            height: 100px;
             object-fit: cover;
+            box-shadow: var(--shadow);
+            position: absolute;
+            top: 20px;
+            right: 30px;
         }
+
+        header img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: var(--text-light);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Download CV Button */
+        .download-cv {
+            position: absolute;
+            top: 20px;
+            right: 180px;
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--text-light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .download-cv:hover {
+            background: var(--accent);
+        }
+
+        /* Navigation */
         nav {
             display: flex;
             justify-content: center;
-            background-color: #34495e;
+            background-color: var(--primary);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 500;
+            position: relative;
             padding: 0.5rem 0;
         }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-weight: bold;
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s;
         }
+
         nav a:hover {
-            text-decoration: underline;
+            color: var(--secondary);
         }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Sections */
         section {
-            padding: 2rem;
+            background: var(--card-light);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 2.5rem;
+            margin: 2rem auto;
             max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            margin-bottom: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background-color: #2c3e50;
-            color: white;
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
         }
+
         h2 {
-            color: #2c3e50;
+            color: var(--primary);
+            font-family: 'Poppins', sans-serif;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
         }
-        .contact-info a {
-            color: #3498db;
-            text-decoration: none;
+
+        h3 {
+            color: var(--primary);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.4rem;
         }
-        .contact-info a:hover {
-            text-decoration: underline;
+
+        h4 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
         }
+
+        /* Lists */
         ul {
             list-style-type: square;
-            padding-left: 1.5rem;
+            padding-left: 2rem;
+            margin-bottom: 1.5rem;
         }
+
         ul li {
-            margin-bottom: 0.7rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
         }
-    </style>
+
+        /* Contact */
+        .contact-info a {
+            color: var(--secondary);
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        /* Social Media */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            background: var(--primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        .social-links a.facebook { background: #3b5998; }
+        .social-links a.linkedin { background: #0077b5; }
+        .social-links a.scholar { background: #4285f4; }
+        .social-links a.researchgate { background: #00ccbb; }
+        .social-links a.orcid { background: #a6ce39; }
+
+        /* Publications Filter */
+        .pub-filter {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .pub-filter button {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: var(--primary);
+            color: var(--text-light);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .pub-filter button:hover, .pub-filter button.active {
+            background: var(--secondary);
+        }
+
+        .pub-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed var(--text-muted);
+        }
+
+        .pub-item:last-child {
+            border-bottom: none;
+        }
+
+        .pub-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Research Interests */
+        .interests {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .interest-tag {
+            background: var(--secondary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--secondary);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-date {
+            position: absolute;
+            left: -2rem;
+            top: 0;
+            background: var(--secondary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .timeline-content {
+            margin-left: 3rem;
+            padding: 1rem;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Google Map */
+        .map-container {
+            height: 300px;
+            margin-top: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a2a3a 100%);
+            color: var(--text-light);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            opacity: 0.9;
+        }
+
+        .credits {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Back to Top */
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--secondary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 1.2rem;
+            display: none;
+            z-index: 1000;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+
+        #back-to-top:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 2rem 1rem;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+            header img {
+                position: static;
+                margin: 1rem auto;
+            }
+            .theme-toggle, .download-cv {
+                position: static;
+                margin: 0.5rem;
+            }
+            nav {
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem;
+            }
+            nav a {
+                margin: 0.5rem 0;
+            }
+            section {
+                padding: 1.5rem;
+                margin: 1.5rem;
+            }
+            .timeline::before {
+                left: 15px;
+            }
+            .timeline-date {
+                left: -1.5rem;
+            }
+        }
+academic-resources {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .resource-card {
+            background: var(--card-light);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            border-top: 4px solid var(--secondary);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .resource-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .resource-btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            margin-top: 1rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .resource-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .youtube-btn {
+            background: #FF0000;
+        }
+
+        .youtube-btn:hover {
+            background: #CC0000;
+        }
+
+        .upload-btn {
+            background: var(--accent);
+        }
+
+        .upload-btn:hover {
+            background: #c0392b;
+        }
+
+        /* Modal for Uploads */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            background: var(--card-light);
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+
+        .upload-form {
+            margin-top: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: var(--light-bg);
+            color: var(--text-dark);
+        }
+
+        .submit-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            margin-top: 1rem;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Dr. Sisir Kumar Rajbongshi<br> (ড° শিশিৰ কুমাৰ ৰাজবংশী
-)</h1>
-        <p>Assistant Professor, Department of Computer Science, PDUAM, Amjonga</p>
+        <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </button>
+        <a href="cv.pdf" class="download-cv" download>
+            <i class="fas fa-download"></i> Download CV
+        </a>
+
+<h1>Dr. Sisir Kumar Rajbongshi<br><span class="assam-font">(ড° শিশিৰ কুমাৰ ৰাজবংশী)</span></h1>
+    <p class="welcome-text">Welcome to My Digital Academia</p> <!-- New welcome line -->
+    <p>Assistant Professor, Department of Computer Science, PDUAM, Amjonga</p>
         <img src="p.jpg" alt="Dr. Sisir Kumar Rajbongshi">
     </header>
 
     <nav>
         <a href="#about">About</a>
         <a href="#research">Research</a>
-	<a href="#books">Books</a>
+	<a href="#resources">Resources for Students</a>
+        <a href="#books">Books</a>
         <a href="#teaching">Teaching</a>
         <a href="#contact">Contact</a>
     </nav>
 
     <section id="about">
         <h2>About Me</h2>
-        <p>
-	<font align="Justify">
-            I am Dr. Sisir Kumar Rajbongshi, currently serving as Assistant Professor and former Head of the Department of Computer Science at Pandit Deendayal Upadhyaya Adarsha Mahavidyalaya, Amjonga, Goalpara, Assam. I have a deep passion for exploring Fuzzy Algebra, Discrete Mathematics, Boolean Computing, and Data Mining.
-       </font> </p>
-	<h1>Academic Journey:</h1>
-	<b>BSc</b> (Computer science)- Gauhati University <br><br>
-	<b>MSc</b> (Computer science)- Gauhati University <br><br>
-	<b>PhD</b> (Information Technology)- Gauhati University<br><br>
-	<b>GATE-2010</b> (Computer Science & Engineering) 	
-        <p>
-            
-        </p>
+        <p>I am Dr. Sisir Kumar Rajbongshi, currently serving as Assistant Professor and former Head of the Department of Computer Science at Pandit Deendayal Upadhyaya Adarsha Mahavidyalaya, Amjonga, Goalpara, Assam. I have a deep passion for exploring Fuzzy Algebra, Discrete Mathematics, Boolean Computing, and Data Mining.</p>
+        
+        <h3>Academic Journey:</h3>
+        <ul>
+            <li><strong>BSc</strong> (Computer Science) - Gauhati University</li>
+            <li><strong>MSc</strong> (Computer Science) - Gauhati University</li>
+            <li><strong>PhD</strong> (Information Technology) - Gauhati University</li>
+            <li><strong>GATE-2010</strong> (Computer Science & Engineering)</li>
+        </ul>
+
+        <h3>Research Interests:</h3>
+        <div class="interests">
+            <span class="interest-tag">Fuzzy Algebra</span>
+            <span class="interest-tag">Discrete Mathematics</span>
+            <span class="interest-tag">Boolean Computing</span>
+            <span class="interest-tag">Data Mining</span>
+            <span class="interest-tag">Machine Learning</span>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number" id="pubCount">25+</div>
+                <div class="stat-label">Publications</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="yearsExp">12+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="students">500+</div>
+                <div class="stat-label">Students Taught</div>
+            </div>
+        </div>
     </section>
 
     <section id="research">
         <h2>Research & Publications</h2>
-                <ul type="circle">
-<li>Sisir Kumar Rajbongshi and Dwiraj Talukdar, “Special Fuzzy Boolean Ring”, International Journal of Engineering Trends and Technology, V43(7), 398-400, January, 2017. (Scopus Indexed Journal) </li>
-<li>S. K. Rajbongshi, K. Sarmah, S.Sarmah, “Unveiling The Tapestry: Federated Learning Challenges and Opportunities in The Indian Educational Landscape”, Mathematical Statistician and Engineering Applications, 71(2), 2022,  747-762. (Scopus Indexed)</li>
-<li>K. Sarmah, H. C. Das, S. K. Rajbongshi, S. Gogoi, “A Comprehensive Study on State-Of-Art Learning Algorithms in Emotion Recognition. IJRITCC 2023, 11, 717-732. (Scopus Indexed)</li>
-<li>Sisir Kumar Rajbonghi and Prasanta Gogoi, “On Some Theoretic Aspects of Fuzzy Subsets”, International Journal for Research in Applied Science & Engineering Technology (IJRASET), ISSN: 2321-9653, Volume 11 Issue II Feb 2023. (Peer Reviewed)</li>
-<li>Rajbongshi, S. K., Sarmah, K., Patir, B., Gogoi, S., & Sarmah, S. “Fuzzy-based Augmentation of Federated Averaging for Enhanced Decentralized Machine Learning” International Journal on Recent and Innovation Trends in Computing and Communication, 11(11), 1032–1038. Retrieved from https://ijritcc.org/index.php/ijritcc/article/view/10581</li> 
+        
+        <div class="pub-filter">
+            <button class="active" data-filter="all">All</button>
+            <button data-filter="journal">Journal Articles</button>
+            <button data-filter="conference">Conference Papers</button>
+            <button data-filter="scopus">Scopus Indexed</button>
+        </div>
 
-<li>Bairagi, P. P., Patir, B., Bora, P., Deka, L., & Rajbongshi, S. K. SmartGuard: An Intelligent LPG Leakage Detection and Control System, International Journal of Engineering trends and Technology. (ISSN 2231-5381) </li>
+        <div class="publications">
+            <div class="pub-item" data-category="journal scopus">
+                <h4>Special Fuzzy Boolean Ring</h4>
+                <p>Sisir Kumar Rajbongshi and Dwiraj Talukdar, International Journal of Engineering Trends and Technology, V43(7), 398-400, January, 2017.</p>
+                <span class="pub-badge">Scopus Indexed Journal</span>
+            </div>
+            
+            <div class="pub-item" data-category="journal scopus">
+                <h4>Unveiling The Tapestry: Federated Learning Challenges and Opportunities</h4>
+                <p>S. K. Rajbongshi, K. Sarmah, S.Sarmah, Mathematical Statistician and Engineering Applications, 71(2), 2022, 747-762.</p>
+                <span class="pub-badge">Scopus Indexed Journal</span>
+            </div>
 
-<li>Sisir Kumar Rajbongshi and Anjana Kakoti Mahanta, “An alternative technique of selecting initial cluster centers in the k-means algorithm for better clustering”, IJCA (0975-8887), 67 (13), 2013 </li>
-<li>Sisir Kumar Rajbongshi and Dwiraj Talukdar, “Some aspects of Special fuzzy Boolean algebra”, Proceeding of International Conference on Frontiers in Mathematics 2015, March 26-28, Gauhati University, Guwahati, Assam, India (ISBN: 978-81-928118-9-5)</li>
-<li>Sisir Kumar Rajbongshi and Dwiraj Talukdar, “Representation of fuzzy Boolean algebra by the Internal Product of two Fuzzy Boolean algebras”, International Journal of Mathematical Archive-5(1), 2014, 12-20</li>
-<li>Sisir Kumar Rajbongshi and Dwiraj Talukdar, “Some Aspects of fuzzy Boolean algebra formed by fuzzy subsets”, International Journal of Advanced Research in Computer Science and Software Engineering, 3.7 (2013): 1-8</li>
-<li>Sisir Kumar Rajbongshi and Dwiraj Talukdar, “Some properties of fuzzy Boolean algebra”, International Journal of Engineering Research and Technology, 2.10 (2013): 1852-1857</li>
-<li>Sisir Kumar Rajbongshi and Dwiraj Talukdar, “An Introduction to a family of fuzzy subsets forming Boolean algebra”, International Journal of Computer Applications (0975-8887), 68(24), April 2013</li>
 
-           
-        </ul>
+	<div class="pub-item" data-category="journal scopus">
+    <h4>A Comprehensive Study on State-Of-Art Learning Algorithms in Emotion Recognition</h4>
+    <p>K. Sarmah, H. C. Das, S. K. Rajbongshi, S. Gogoi, IJRITCC 2023, 11, 717-732.</p>
+    <span class="pub-badge">Scopus Indexed Jouranl</span>
+</div>
+
+<div class="pub-item" data-category="journal">
+    <h4>On Some Theoretic Aspects of Fuzzy Subsets</h4>
+    <p>Sisir Kumar Rajbongshi and Prasanta Gogoi, International Journal for Research in Applied Science & Engineering Technology (IJRASET), ISSN: 2321-9653, Volume 11 Issue II Feb 2023.</p>
+    <span class="pub-badge">Peer Reviewed</span>
+</div>
+
+<div class="pub-item" data-category="journal">
+    <h4>Fuzzy-based Augmentation of Federated Averaging for Enhanced Decentralized Machine Learning</h4>
+    <p>Rajbongshi, S. K., Sarmah, K., Patir, B., Gogoi, S., & Sarmah, S., International Journal on Recent and Innovation Trends in Computing and Communication, 11(11), 1032–1038. Retrieved from https://ijritcc.org/index.php/ijritcc/article/view/10581</p>
+<span class="pub-badge">Scopus Indexed Journal</span>
+</div>
+
+<div class="pub-item" data-category="journal">
+    <h4>SmartGuard: An Intelligent LPG Leakage Detection and Control System</h4>
+    <p>Bairagi, P. P., Patir, B., Bora, P., Deka, L., & Rajbongshi, S. K., International Journal of Engineering trends and Technology. (ISSN 2231-5381)</p>
+	<span class="pub-badge">Scopus Indexed</span>
+</div>
+
+<div class="pub-item" data-category="journal">
+    <h4>An alternative technique of selecting initial cluster centers in the k-means algorithm for better clustering</h4>
+    <p>Sisir Kumar Rajbongshi and Anjana Kakoti Mahanta, IJCA (0975-8887), 67 (13), 2013</p>
+</div>
+
+<div class="pub-item" data-category="conference">
+    <h4>Some aspects of Special fuzzy Boolean algebra</h4>
+    <p>Sisir Kumar Rajbongshi and Dwiraj Talukdar, Proceeding of International Conference on Frontiers in Mathematics 2015, March 26-28, Gauhati University, Guwahati, Assam, India (ISBN: 978-81-928118-9-5)</p>
+</div>
+
+<div class="pub-item" data-category="journal">
+    <h4>Representation of fuzzy Boolean algebra by the Internal Product of two Fuzzy Boolean algebras</h4>
+    <p>Sisir Kumar Rajbongshi and Dwiraj Talukdar, International Journal of Mathematical Archive-5(1), 2014, 12-20</p>
+</div>
+
+<div class="pub-item" data-category="journal">
+    <h4>Some Aspects of fuzzy Boolean algebra formed by fuzzy subsets</h4>
+    <p>Sisir Kumar Rajbongshi and Dwiraj Talukdar, International Journal of Advanced Research in Computer Science and Software Engineering, 3.7 (2013): 1-8</p>
+</div>
+
+<div class="pub-item" data-category="journal">
+    <h4>Some properties of fuzzy Boolean algebra</h4>
+    <p>Sisir Kumar Rajbongshi and Dwiraj Talukdar, International Journal of Engineering Research and Technology, 2.10 (2013): 1852-1857</p>
+</div>
+
+<div class="pub-item" data-category="journal">
+    <h4>An Introduction to a family of fuzzy subsets forming Boolean algebra</h4>
+    <p>Sisir Kumar Rajbongshi and Dwiraj Talukdar, International Journal of Computer Applications (0975-8887), 68(24), April 2013</p>
+</div>
+            
+            <div class="pub-item" data-category="conference">
+                <h4>Some aspects of Special fuzzy Boolean algebra</h4>
+                <p>Proceeding of International Conference on Frontiers in Mathematics 2015, March 26-28, Gauhati University.</p>
+            </div>
+            <!-- Add these to your <div class="publications"> section -->
+
+<div class="pub-item" data-category="conference">
+    <h4>An Introduction to a family of fuzzy subsets forming Boolean algebra</h4>
+    <p>Sisir Kumar Rajbongshi and Dwiraj Talukdar, National Conference on Pure and Applied Mathematics, 2013, May 9-10, Royal Group of Institutions, Guwahati, Assam, India.</p>
+</div>
+
+<div class="pub-item" data-category="conference">
+    <h4>Representation of fuzzy Boolean algebra by the Internal Product of two Fuzzy Boolean algebras</h4>
+    <p>Sisir Kumar Rajbongshi and Dwiraj Talukdar, National Conference, 2013, Dec 23, GIMT, Guwahati, Assam, India.</p>
+</div>
+
+<div class="pub-item" data-category="conference">
+    <h4>The complement Laws for the fuzzy subsets of a finite set</h4>
+    <p>Sisir Kumar Rajbongshi, National Seminar on Recent Trends in Mathematical Economics, 2014, 29-30 August, Lakhimpur Girls' College, Khelmati, North Lakhimpur, Assam-787031, India.</p>
+</div>
+
+<div class="pub-item" data-category="conference">
+    <h4>Fuzzy sets towards forming Boolean Ring</h4>
+    <p>Sisir Kumar Rajbongshi, National Conference on advances in Mathematical Sciences, 2016, 22-23 December, Department of Mathematics, Gauhati University, Ghy-14, Assam.</p>
+</div>
+
+<div class="pub-item" data-category="conference">
+    <h4>Some aspects of Fuzzy Power Set</h4>
+    <p>Sisir Kumar Rajbongshi, National Conference on Recent Advances in Science and Technology (NCRAST-2018) under TEQIP-III, organized by ASTU, Guwahati, from 15th to 17th March, 2018.</p>
+</div>
+
+<div class="pub-item" data-category="conference">
+    <h4>On Product of Special Fuzzy Groupoids</h4>
+    <p>Sisir Kumar Rajbongshi, National Conference on Advanced Mathematical & Applied Sciences organized by Department of Mathematical Sciences, Bodoland University from 1st July to 2nd July, 2020.</p>
+</div>
+
+<div class="pub-item" data-category="conference">
+    <h4>Some Theoretic aspects of Fuzzy Subsets</h4>
+    <p>Sisir Kumar Rajbongshi, National Conference on New Approaches of Basic Sciences towards Engineering and Technology (NABSET2023), on 24-02-2023 and 25-02-2023 at Assam Don Bosco University, Azara Campus.</p>
+</div>
+            <!-- Add more publications here -->
+        </div>
     </section>
 
 
 
-<section id="books">
+<!-- ===== NEW ACADEMIC RESOURCES SECTION ===== -->
+    <section id="resources">
+        <h2>Academic Resources</h2>
+        
+        <div class="academic-resources">
+            <div class="resource-card">
+                <div class="resource-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3>Class Notes</h3>
+                <p>Download PDF notes for all subjects I teach</p>
+                <a href="notes/" class="resource-btn">
+                    <i class="fas fa-download"></i> View Notes
+                </a>
+            </div>
+            
+            <div class="resource-card">
+                <div class="resource-icon">
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <h3>Video Lectures</h3>
+                <p>Watch recorded lectures on my YouTube channel</p>
+                <a href="https://youtube.com/@85sisir" class="resource-btn youtube-btn" target="_blank">
+                    <i class="fab fa-youtube"></i> Visit Channel
+                </a>
+            </div>
+            
+            <div class="resource-card">
+                <div class="resource-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <h3>Question Papers</h3>
+                <p>Access previous years' question papers</p>
+                <a href="question-papers/" class="resource-btn">
+                    <i class="fas fa-search"></i> Browse Papers
+                </a>
+                <button id="openUpload" class="resource-btn upload-btn" style="margin-left: 0.5rem;">
+                    <i class="fas fa-upload"></i> Upload
+                </button>
+            </div>
+            
+            <div class="resource-card">
+                <div class="resource-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>Assignments</h3>
+                <p>Download and submit programming assignments</p>
+                <a href="assignments/" class="resource-btn">
+                    <i class="fas fa-tasks"></i> View Assignments
+                </a>
+            </div>
+        </div>
+    </section>
+
+<!-- Upload Modal -->
+    <div id="uploadModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Upload Question Paper</h3>
+            <p>Contribute to the academic repository by uploading previous question papers</p>
+            
+            <form class="upload-form" id="paperUploadForm">
+                <div class="form-group">
+                    <label for="paperTitle">Paper Title</label>
+                    <input type="text" id="paperTitle" required placeholder="e.g., Data Structures 2019">
+                </div>
+                
+                <div class="form-group">
+                    <label for="paperCourse">Course</label>
+                    <select id="paperCourse" required>
+                        <option value="">Select Course</option>
+                        <option value="cs101">Computer Science Fundamentals</option>
+                        <option value="ds">Data Structures</option>
+                        <option value="algo">Algorithms</option>
+                        <option value="dbms">Database Management</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="paperYear">Year</label>
+                    <input type="number" id="paperYear" min="2000" max="2024" required placeholder="e.g., 2020">
+                </div>
+                
+                <div class="form-group">
+                    <label for="paperFile">PDF File</label>
+                    <input type="file" id="paperFile" accept=".pdf" required>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-upload"></i> Upload Paper
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+    <section id="books">
         <h2>Books & Chapters</h2>
-                <ul type="circle">
-<li>Published a Book Chapter “Some aspects of isomorphic special fuzzy Boolean rings in the set of fuzzy subsets of a finite set” Book Title- “Matrix”, by Dept of Mathematics, Nalbari College, Nalbari, page no-1 to 7. (ISBN-978-93-85229-38-1) </li>
+        <ul>
+            <li>Published a Book Chapter “Some aspects of isomorphic special fuzzy Boolean rings in the set of fuzzy subsets of a finite set” Book Title- “Matrix”, by Dept of Mathematics, Nalbari College, Nalbari, page no-1 to 7. (ISBN-978-93-85229-38-1) </li>
 <li>Published a Book entitled “Fundamentals of Computer Science” with ISBN: 978-93-88593-30-4 in February, 2019.</li>
 <li>Published a Book Chapter in the proceedings of National Conference on Recent Advances in Science and Technology (NCRAST-2018) under TEQIP-III, entitled “Some aspects of fuzzy power set” page no: 92-95, organized by ASTU, Guwahati, from 15th to 17th March, 2018.(ISBN-978-81-908910-9-7).</li>
 <li>Published a Book Chapter “Special Fuzzy Groupoid” page no.:83-91, Book Title-“Reflection” by UGC-HRDC, Gauhati University, Ghy in January, 2019</li>
@@ -161,11 +903,9 @@ Book Title-“DATA MINING AND WAREHOUSING", published by Gauhati University, Cen
 Book Title-“Fusion” published by Dudhnoi College Teachers Association (DCTA) on 30th November, 2024.
 </li> 			
 
-
-			
+            <!-- Other book items -->
         </ul>
     </section>
-
 
     <section id="teaching">
         <h2>Teaching, Workshops, and Conferences</h2>
@@ -175,45 +915,235 @@ Book Title-“Fusion” published by Dudhnoi College Teachers Association (DCTA)
             <li>Guest Lecturer at IDOL, Gauhati University, Assam (9 years).</li>
             <li>Assistant Professor (Permanent) at PDUAM, Amjonga since 2017.</li>
         </ul>
-        <h3>Workshops & FDPs</h3>
-        <ul>
-            <li>Completed “UGC-Sponsored Orientation Program” from 15th December 2018 to 11th January at Gauhati University.</li>
-	<li>Completed National Level One Week FDP on “Development of E-Content in Teaching and ICT Based Assessment Tools” from 12th June to 17th June 2020 organized by Dept of Education, Mazbat College, Mazbat, Udalguri, Assam-784507</li>
-	<li>Completed One Week National Level FDP on “Educational Video Creation” organized by the Department of English, KBR College from 16th to 21st July 2020.</li>
-	<li>Completed ICSSR-NERC Sponsored One-Week International FDP on “Innovative Techniques for Professional Development of Teachers in Higher Education” organized by the Department of Education, North- Eastern Hill University (NEHU), Shillong, Meghalaya, India from 1st-7th September 2021.</li>
-	<li>Completed ICSSR-NERC Sponsored Two-Week International FDP on “Innovative Techniques for Professional Development of Teachers in Higher Education” organized by the Department of Education, North- Eastern Hill University (NEHU), Shillong, Meghalaya, India from 1st -14th September, 2021.</li>
-	<li>Completed ICSSR-NERC Sponsored One-Week International FDP on “Innovative Techniques for Professional Development of Teachers in Higher Education” organized by the Department of Education, North- Eastern Hill University (NEHU), Shillong, Meghalaya, India from 8th -14th September 2021.</li>
-	<li>Completed One Week National Level FDP on “MOODLE” organized by the Department of Computer Science, GIMT, Guwahati, held from 20th to 24th June, 2022.</li>
-	<li>Participated a workshop on “NEP 2020: Issues and Challenges in Higher Education organized by IIC and IQAC, in Association with Bikali College, Dhupdhara and Habraghat Mahavidyalaya, Krishnai on 21st and 22nd February, 2023. </li>
-	<li>Completed one day workshop on “AI Tools” organized by Be10X organization on 31st May, 2023.</li>
-        </ul>
-        <h3>Conference Papers Presented</h3>
-        <ul>
-            <li>Presented an article entitled “Some aspects of Special fuzzy Boolean algebra”, International conference on Frontiers in Mathematics 2015, March 26-28, Gauhati University, Guwahati, Assam, India.</li>
-<li>Presented an article entitled “An Introduction to a family of fuzzy subsets forming Boolean algebra”, National Conference on Pure and Applied Mathematics, 2013, May 9-10, Royal Group of Institutions, Guwahati, Assam, India.</li>
-<li>Presented an article entitled “Representation of fuzzy Boolean algebra by the Internal Product of two Fuzzy Boolean algebras”, National Conference on, 2013, Dec 23, GIMT, Guwahati, Assam, India.</li>
-<li>Presented an article entitled “The complement Laws for the fuzzy subsets of a finite set”, National Seminar on Recent Trends in Mathematical Economics, 2014, 29-30 August, Lakhimpur Girls ‘ College, Khelmati, North Lakhimpur, Assam-787031, India.</li>
-<li>Presented an article entitled “Fuzzy sets towards forming Boolean Ring”, National Conference on advances in Mathematical Sciences, 2016, 22-23 December, Department of Mathematics, Gauhati University, Ghy-14, Assam.</li> 
-<li>Presented a paper “Some aspects of Fuzzy Power Set” in the National Conference on Recent Advances in Science and Technology (NCRAST-2018) under TEQIP-III, entitled “Some aspects of fuzzy power set” organized by ASTU, Guwahati, from 15th to 17th March, 2018.</li> 
-<li>Presented a paper “On Product of Special Fuzzy Groupoids” in National Conference on Advanced Mathematical & Applied Sciences organized by Department of Mathematical Sciences, Bodoland University from 1st July to 2nd July, 2020.</li>
-<li>Presented a paper entitled “ Some Theoretic aspects of Fuzzy Subsets” in the  National Conference on New Approaches of Basic Sciences towards Engineering and Technology (NABSET2023), on 24-02-2023 and 25-02-2023 at Assam Don Bosco University, Azara Campus.</li>
-titutions, 2013.</li>
-        </ul>
+        
+        <h3>Professional Development Timeline</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">2021</div>
+                <div class="timeline-content">
+                    <h4>International FDP on Innovative Techniques</h4>
+                    <p>ICSSR-NERC Sponsored, NEHU, Shillong</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">2020</div>
+                <div class="timeline-content">
+                    <h4>National FDP on E-Content Development</h4>
+                    <p>Mazbat College, Assam</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">2018</div>
+                <div class="timeline-content">
+                    <h4>UGC Orientation Program</h4>
+                    <p>Gauhati University</p>
+                </div>
+            </div>
+
+<div class="timeline-item">
+                <div class="timeline-date">2020</div>
+                <div class="timeline-content">
+                    <h4>FDP on Educational Video Creation by Department of English, KBR College</h4>
+                    <p>Gauhati University</p>
+                </div>
+            </div>
+
+<div class="timeline-item">
+                <div class="timeline-date">2021</div>
+                <div class="timeline-content">
+                    <h4>ICSSR-NERC Sponsored International FDP on Innovative Techniques, 1st-7th September</h4>
+                    <p>NEHU, Shillong</p>
+                </div>
+            </div>
+
+<div class="timeline-item">
+                <div class="timeline-date">2022</div>
+                <div class="timeline-content">
+                    <h4>National Level FDP on MOODLE, one-week program organized by Department of Computer Science from 20th to 24th June 2022</h4>
+                    <p>GIMT, Guwahati</p>
+                </div>
+            </div>
+
+<div class="timeline-item">
+                <div class="timeline-date">2023</div>
+                <div class="timeline-content">
+                    <h4>Workshop on NEP 2020: Issues and Challenges on 21st-22nd February</h4>
+                    <p>organized by IIC and IQAC in Association with Bikali College and Habraghat Mahavidyalaya</p>
+                </div>
+            </div>
+
+<div class="timeline-item">
+                <div class="timeline-date">2023</div>
+                <div class="timeline-content">
+                    <h4>Workshop on AI Tools</h4>
+                    <p>Be10X organization on 31st May 2023</p>
+                </div>
+            </div>
+
+        </div>
     </section>
 
     <section id="contact">
         <h2>Contact Me</h2>
-        <p>
-            Feel free to reach out for academic collaborations, speaking engagements, or queries.
-        </p>
-        <p class="contact-info">
-            Email: <a href="mailto:sisirrajbongshi01@gmail.com">sisirrajbongshi@gmail.com</a><br>
-            Phone: <a href="tel:+919707721185">+91 97077 21185</a><br>
-        </p>
+        <p>Feel free to reach out for academic collaborations, speaking engagements, or queries.</p>
+        <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> Email: <a href="mailto:sisirrajbongshi01@gmail.com">sisirrajbongshi01@gmail.com</a></p>
+            <p><i class="fas fa-phone"></i> Phone: <a href="tel:+917002234501">+91 7002234501</a></p>
+            <p><i class="fas fa-map-marker-alt"></i> Department of Computer Science, PDUAM, Amjonga, Goalpara, Assam</p>
+            
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3586.123456789012!2d91.12345678901234!3d26.123456789012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDA3JzI0LjQiTiA5McKwMDcnMjQuNCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.facebook.com/sisir.rajbongshi/" class="facebook" title="Facebook" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" class="linkedin" title="LinkedIn" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://scholar.google.com/citations?user=FnEacOIAAAAJ&hl=en" class="scholar" title="Google Scholar" target="_blank">
+                    <i class="fas fa-graduation-cap"></i>
+                </a>
+                <a href="https://https://www.researchgate.net/profile/Dr-Sisir-Rajbongshi?ev=hdr_xprf" class="researchgate" title="ResearchGate" target="_blank">
+                    <i class="fab fa-researchgate"></i>
+                </a>
+                <a href="https://orcid.org/yourORCID" class="orcid" title="ORCID" target="_blank">
+                    <i class="fab fa-orcid"></i>
+                </a>
+            </div>
+        </div>
     </section>
 
     <footer>
         <p>&copy; 2024 Dr. Sisir Kumar Rajbongshi. All Rights Reserved.</p>
+        <p class="credits">Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> for academia</p>
     </footer>
+
+    <a href="#" id="back-to-top" title="Back to Top"><i class="fas fa-arrow-up"></i></a>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.setAttribute('data-theme', 
+                document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+            
+            themeToggle.innerHTML = document.body.getAttribute('data-theme') === 'dark' 
+                ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        });
+
+        // Back to Top Button
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                document.getElementById("back-to-top").style.display = "block";
+            } else {
+                document.getElementById("back-to-top").style.display = "none";
+            }
+        };
+
+        // Publications Filter
+        const filterButtons = document.querySelectorAll('.pub-filter button');
+        const pubItems = document.querySelectorAll('.pub-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Set active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Filter items
+                const filter = button.getAttribute('data-filter');
+                pubItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category').includes(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Animate stats counters
+        function animateCounter(element, target, duration = 2000) {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    clearInterval(timer);
+                    current = target;
+                }
+                element.textContent = Math.floor(current) + (element.id === 'yearsExp' ? '+' : '');
+            }, 16);
+        }
+
+        // Start counters when section is visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(document.getElementById('pubCount'), 25);
+                    animateCounter(document.getElementById('yearsExp'), 12);
+                    animateCounter(document.getElementById('students'), 500);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(document.getElementById('about'));
+const modal = document.getElementById("uploadModal");
+        const openBtn = document.getElementById("openUpload");
+        const closeBtn = document.querySelector(".close-modal");
+        const uploadForm = document.getElementById("paperUploadForm");
+
+        openBtn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        uploadForm.onsubmit = function(e) {
+            e.preventDefault();
+            // Here you would handle the file upload
+            // This would typically connect to your backend
+            alert("Question paper uploaded successfully! (This would connect to your server in production)");
+            modal.style.display = "none";
+        }
+    </script>
+<script>
+    // Rotating welcome messages
+    const welcomeTexts = [
+        "Welcome to My Academic World",
+        "আদৰিছোঁ 🙏🙏🙏", 
+        "A Teacher's Digital Space"
+    ];
+    
+    let currentIndex = 0;
+    const welcomeElement = document.querySelector('.welcome-text');
+    
+    function rotateWelcomeText() {
+        welcomeElement.style.opacity = 0;
+        setTimeout(() => {
+            welcomeElement.textContent = welcomeTexts[currentIndex];
+            currentIndex = (currentIndex + 1) % welcomeTexts.length;
+            welcomeElement.style.opacity = 1;
+        }, 500); // Fade duration
+    }
+    
+    // Start rotation (3 seconds per message)
+    rotateWelcomeText();
+    setInterval(rotateWelcomeText, 3000);
+</script>
 </body>
 </html>
