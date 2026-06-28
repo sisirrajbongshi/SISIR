@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publications | Dr. Sisir Kumar Rajbongshi</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body{font-family:Inter,sans-serif;background:#f4f7fb;margin:0;color:#222}
+header{background:linear-gradient(135deg,#0f3d5e,#1d6fa5);color:#fff;padding:50px 20px;text-align:center}
+header h1{margin:0;font-size:2.6rem}
+.container{max-width:1100px;margin:auto;padding:30px 20px}
+.controls{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:25px}
+input{flex:1;padding:12px;border-radius:30px;border:1px solid #ccc}
+button{padding:10px 16px;border:none;border-radius:25px;background:#0f3d5e;color:#fff;font-weight:700;cursor:pointer}
+button.active{background:#d35400}
+.pub{background:#fff;padding:18px;border-radius:14px;margin-bottom:18px;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+.pub h3{margin:0 0 8px;color:#0f3d5e}
+.badge{display:inline-block;background:#1976d2;color:#fff;padding:4px 10px;border-radius:20px;font-size:.75rem;margin-top:8px}
+footer{text-align:center;padding:30px;background:#0f3d5e;color:#fff;margin-top:40px}
+</style>
+</head>
+<body>
+
+<header>
+<h1><i class="fa-solid fa-book-open-reader"></i> Research Publications</h1>
+<p>Dr. Sisir Kumar Rajbongshi</p>
+</header>
+
+<div class="container">
+
+<div class="controls">
+<input id="search" placeholder="Search publications...">
+<button class="active" data-filter="all">All</button>
+<button data-filter="journal">Journal</button>
+<button data-filter="conference">Conference</button>
+<button data-filter="scopus">Scopus</button>
+</div>
+
+<div id="list">
+
+<div class="pub" data-cat="journal scopus">
+<h3>SmartGuard: An Intelligent LPG Leakage Detection and Control System</h3>
+<p>International Journal of Engineering Trends and Technology.</p>
+<span class="badge">Scopus Indexed</span>
+</div>
+
+<div class="pub" data-cat="journal scopus">
+<h3>Fuzzy-based Augmentation of Federated Averaging for Enhanced Decentralized Machine Learning</h3>
+<p>International Journal on Recent and Innovation Trends in Computing and Communication.</p>
+<span class="badge">Scopus Indexed</span>
+</div>
+
+<div class="pub" data-cat="journal">
+<h3>A Comparative Analysis of Predictive Machine Learning Models on Student Mental Health Impact on Academic Outcomes</h3>
+<p>International Journal of Advances in Signal and Image Sciences.</p>
+</div>
+
+<div class="pub" data-cat="journal scopus">
+<h3>Special Fuzzy Boolean Ring</h3>
+<p>International Journal of Engineering Trends and Technology.</p>
+<span class="badge">Scopus Indexed</span>
+</div>
+
+<div class="pub" data-cat="conference">
+<h3>p-Adic Encoding of L-Fuzzy Sets for Sustainable Decision-Making in Uncertain Environments</h3>
+<p>International Conference on Frontiers in Science (ICFS-2025).</p>
+</div>
+
+<div class="pub" data-cat="conference">
+<h3>Some Theoretic Aspects of Fuzzy Subsets</h3>
+<p>NABSET-2023, Assam Don Bosco University.</p>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+<p>Complete publication list is updated periodically.</p>
+<p><a href="index.html" style="color:white;">← Back to Home</a></p>
+</footer>
+
+<script>
+const search=document.getElementById('search');
+const pubs=[...document.querySelectorAll('.pub')];
+let filter='all';
+document.querySelectorAll('button').forEach(b=>{
+ b.onclick=()=>{
+   document.querySelectorAll('button').forEach(x=>x.classList.remove('active'));
+   b.classList.add('active');
+   filter=b.dataset.filter;
+   update();
+ };
+});
+search.oninput=update;
+function update(){
+ const q=search.value.toLowerCase();
+ pubs.forEach(p=>{
+   const okFilter=filter==='all'||p.dataset.cat.includes(filter);
+   const okSearch=p.innerText.toLowerCase().includes(q);
+   p.style.display=(okFilter&&okSearch)?'block':'none';
+ });
+}
+</script>
+
+</body>
+</html>
