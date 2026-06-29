@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Books & Book Chapters | Dr. Sisir Kumar Rajbongshi</title>
+  <meta name="description" content="Books, edited volumes and book chapters authored, edited or contributed by Dr. Sisir Kumar Rajbongshi." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root{
+      --bg:#f6f8fb;--surface:#fff;--surface2:#edf4fb;--text:#1f2937;--muted:#667085;
+      --primary:#0f3d5e;--primary2:#155e8a;--accent:#c2410c;--border:#d7e2ed;
+      --shadow:0 18px 45px rgba(15,61,94,.12);--radius:22px
+    }
+    [data-theme="dark"]{
+      --bg:#0b1220;--surface:#111c2f;--surface2:#17243a;--text:#eef4ff;--muted:#bac6d7;
+      --primary:#70c4ff;--primary2:#38a3e8;--accent:#ff9b74;--border:#253650;
+      --shadow:0 18px 45px rgba(0,0,0,.38)
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+    a{color:var(--primary2);text-decoration:none}a:hover{color:var(--accent)}
+    .container{max-width:1180px;margin:auto;padding:0 1.25rem}
+
+    .topbar{position:sticky;top:0;z-index:999;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+    [data-theme="dark"] .topbar{background:rgba(11,18,32,.88)}
+    .nav{max-width:1180px;margin:auto;min-height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem}
+    .brand{display:flex;align-items:center;gap:.7rem;font-weight:800;color:var(--primary)}
+    .brand-mark{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#0f3d5e,#155e8a);color:#fff;display:grid;place-items:center;font-family:Noto Serif,serif}
+    .nav-links{display:flex;gap:.4rem;align-items:center}
+    .nav-links a{font-weight:800;color:var(--text);padding:.55rem .7rem;border-radius:999px}
+    .nav-links a:hover,.nav-links a.active{background:rgba(21,94,138,.12);color:var(--primary2)}
+    .theme-toggle,.menu-toggle{border:0;cursor:pointer;border-radius:999px;background:var(--primary2);color:#fff;width:42px;height:42px;display:grid;place-items:center}
+    .menu-toggle{display:none}
+
+    .hero{background:linear-gradient(135deg,#082238,#155e8a);color:#fff;padding:4.5rem 0 3.5rem}
+    .hero h1{font-size:clamp(2.2rem,5vw,4rem);letter-spacing:-.05em;line-height:1.05;margin-bottom:.8rem}
+    .hero p{max-width:850px;color:#e8f4ff;font-size:1.08rem}
+    .crumb{display:inline-flex;gap:.5rem;align-items:center;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.25);padding:.45rem .8rem;border-radius:999px;font-weight:800;margin-bottom:1rem}
+
+    main{padding:2rem 0}
+    .section{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:1.4rem;box-shadow:var(--shadow)}
+    .kicker{color:var(--accent);font-size:.8rem;text-transform:uppercase;letter-spacing:.14em;font-weight:800}
+    h2{color:var(--primary);font-size:2rem;letter-spacing:-.04em;margin:.2rem 0 1rem}
+    .lead{color:var(--muted);max-width:900px}
+
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1rem;margin-top:1.3rem}
+    .stat{background:var(--surface2);border:1px solid var(--border);border-radius:18px;padding:1.2rem;text-align:center}
+    .stat strong{display:block;color:var(--primary2);font-size:2rem}
+    .stat span{color:var(--muted);font-weight:800;font-size:.9rem}
+
+    .toolbar{display:flex;flex-wrap:wrap;gap:.75rem;margin:1.2rem 0}
+    .toolbar input{flex:1 1 260px;border:1px solid var(--border);background:var(--surface);color:var(--text);padding:.8rem 1rem;border-radius:999px}
+    .filters{display:flex;flex-wrap:wrap;gap:.45rem}
+    .filters button{border:0;border-radius:999px;background:var(--primary);color:#fff;padding:.65rem .9rem;font-weight:800;cursor:pointer}
+    .filters button.active,.filters button:hover{background:var(--accent)}
+
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+    .book-card{grid-column:span 6;background:var(--surface2);border:1px solid var(--border);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:140px 1fr;min-height:220px}
+    .cover{background:linear-gradient(145deg,var(--primary),var(--primary2));color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;padding:1rem;font-weight:800;font-size:1rem}
+    .cover i{font-size:2.5rem;margin-bottom:.7rem;display:block}
+    .content{padding:1.1rem}
+    .content h3{color:var(--primary);line-height:1.3;margin-bottom:.45rem}
+    .meta{color:var(--muted);font-size:.92rem;margin:.35rem 0}
+    .tag{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:.22rem .55rem;font-size:.75rem;font-weight:800;margin:.35rem .25rem .15rem 0}
+    .tag.book{background:#155e8a}.tag.edit{background:#7c3aed}.tag.chapter{background:#0f766e}.tag.course{background:#c2410c}
+
+    footer{background:#082238;color:#e9f4ff;text-align:center;padding:2rem;margin-top:2rem}
+    @media(max-width:900px){
+      .book-card{grid-column:span 12}
+      .nav-links{display:none;position:absolute;top:68px;left:1rem;right:1rem;flex-direction:column;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:.8rem;box-shadow:var(--shadow)}
+      .nav-links.open{display:flex}.nav-links a{width:100%}.menu-toggle{display:grid}
+    }
+    @media(max-width:560px){.book-card{grid-template-columns:1fr}.cover{min-height:140px}.section{padding:1.2rem}}
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="nav">
+      <a class="brand" href="index.html"><span class="brand-mark">SKR</span><span>Dr. S. K. Rajbongshi</span></a>
+      <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="index.html#research">Research</a>
+        <a href="publications.html">Publications</a>
+        <a class="active" href="books.html">Books</a>
+        <a href="index.html#ipr">IPR</a>
+        <a href="index.html#teaching">Teaching</a>
+        <a href="index.html#resources">Resources</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <button class="theme-toggle" id="themeToggle"><i class="fa-solid fa-moon"></i></button>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="container">
+      <div class="crumb"><i class="fa-solid fa-book"></i> Academic Authorship</div>
+      <h1>Books, Edited Volumes & Book Chapters</h1>
+      <p>A curated academic record of authored books, edited volumes, course materials and book chapters by Dr. Sisir Kumar Rajbongshi, covering Computer Science, Artificial Intelligence, Data Mining, Fuzzy Logic, Database Systems, Operating Systems and interdisciplinary research.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <p class="kicker">Overview</p>
+      <h2>Scholarly Book Contributions</h2>
+      <p class="lead">This page presents my books, edited volumes and selected book chapters. The list is arranged primarily with recent contributions first and can be searched or filtered by category.</p>
+
+      <div class="stats">
+        <div class="stat"><strong>4+</strong><span>Authored / Course Books</span></div>
+        <div class="stat"><strong>2+</strong><span>Edited Volumes</span></div>
+        <div class="stat"><strong>10+</strong><span>Book Chapters / Units</span></div>
+        <div class="stat"><strong>2025</strong><span>Latest Major Publications</span></div>
+      </div>
+
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="Search books, chapters, publisher, ISBN, DOI or topic...">
+        <div class="filters">
+          <button class="active" data-filter="all">All</button>
+          <button data-filter="book">Books</button>
+          <button data-filter="edited">Edited</button>
+          <button data-filter="chapter">Chapters</button>
+          <button data-filter="course">Course Units</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="kicker">Complete List</p>
+      <h2>Books & Chapters</h2>
+
+      <div class="grid" id="bookList">
+
+        <article class="book-card" data-category="book">
+          <div class="cover"><div><i class="fa-solid fa-laptop-code"></i>Course Book</div></div>
+          <div class="content">
+            <h3>Computer Fundamentals and C Programming</h3>
+            <p class="meta"><strong>Authors:</strong> Dr. Sisir Kumar Rajbongshi and Dr. Kshirod Sarmah</p>
+            <p class="meta"><strong>Publisher:</strong> Deep Science Publishing | <strong>Year:</strong> 2025</p>
+            <p class="meta"><strong>DOI:</strong> 10.70593/978-93-7185-406-1 | <strong>ISBN:</strong> 978-93-7185-500-6</p>
+            <span class="tag book">Authored Book</span><span class="tag course">Computer Science</span>
+          </div>
+        </article>
+
+        <article class="book-card" data-category="edited">
+          <div class="cover"><div><i class="fa-solid fa-layer-group"></i>Edited Volume</div></div>
+          <div class="content">
+            <h3>Multidisciplinary Research: Innovations in Science, Arts, and Commerce</h3>
+            <p class="meta"><strong>Editors:</strong> Dr. Sisir Kumar Rajbongshi, Kshirod Sarmah, Rajdeep Ghosh and Dharmeswar Tarang</p>
+            <p class="meta"><strong>Publisher:</strong> Deep Science | <strong>Year:</strong> September 2025</p>
+            <p class="meta"><strong>DOI:</strong> 10.70593/978-93-7185-737-6 | <strong>ISBN:</strong> 9789371857376</p>
+            <span class="tag edit">Edited Book</span>
+          </div>
+        </article>
+
+        <article class="book-card" data-category="chapter">
+          <div class="cover"><div><i class="fa-solid fa-seedling"></i>CRC Chapter</div></div>
+          <div class="content">
+            <h3>Federated Learning: A Game-Changer in Agricultural Decision-Making and Precision Farming</h3>
+            <p class="meta"><strong>Authors:</strong> S. K. Rajbongshi, R. Ghosh, K. Sarmah and S. Sarmah</p>
+            <p class="meta"><strong>Book:</strong> Artificial Intelligence and Computer Vision for Ecological Informatics</p>
+            <p class="meta"><strong>Publisher:</strong> CRC Press, Taylor & Francis Group | <strong>Pages:</strong> 231–245</p>
+            <span class="tag chapter">Book Chapter</span><span class="tag book">Scopus Indexed Book</span>
+          </div>
+        </article>
+
+        <article class="book-card" data-category="chapter">
+          <div class="cover"><div><i class="fa-solid fa-calculator"></i>Fuzzy Logic</div></div>
+          <div class="content">
+            <h3>Smart Decisions in Unclear Situations: A Fuzzy Approach to Business Strategy</h3>
+            <p class="meta"><strong>Author:</strong> Dr. Sisir Kumar Rajbongshi</p>
+            <p class="meta"><strong>Book:</strong> Research Synthesis, First Edition</p>
+            <p class="meta"><strong>Publisher:</strong> Global Net Publication | <strong>Year:</strong> October 2025 | <strong>ISBN:</strong> 978-93-6761-222-4</p>
+            <span class="tag chapter">Book Chapter</span><span class="tag chapter">Fuzzy Decision Support</span>
+          </div>
+        </article>
+
+        <article class="book-card" data-category="chapter">
+          <div class="cover"><div><i class="fa-solid fa-infinity"></i>p-adic</div></div>
+          <div class="content">
+            <h3>Integration of p-adic Numbering in L-Fuzzy Set Representation</h3>
+            <p class="meta"><strong>Author:</strong> Sisir Kumar Rajbongshi</p>
+            <p class="meta"><strong>Book:</strong> Contemporary Explorations in Multidisciplinary Sciences</p>
+            <p class="meta"><strong>ISBN:</strong> 978-93-48301-03-1597</p>
+            <span class="tag chapter">Book Chapter</span><span class="tag chapter">L-Fuzzy Sets</span>
+          </div>
+        </article>
+
+        <article class="book-card" data-category="chapter">
+          <div class="cover"><div><i class="fa-solid fa-chart-line"></i>Business</div></div>
+          <div class="content">
+            <h3>Fuzzy Logic-Based Decision Support for Business under Uncertainty</h3>
+            <p class="meta"><strong>Book:</strong> Nucleus</p>
+            <p class="meta"><strong>Publisher:</strong> Tinsukia College Publication | <strong>Year:</strong> 2025 | <strong>Pages:</strong> 141–148</p>
+            <p class="meta"><strong>ISBN:</strong> 978-93-49134-73-7</p>
+            <span class="tag chapter">Book Chapter</span>
+          </div>
+        </article>
+
+        <article class="book-card" data-category="course">
+          <div class="cover"><div><i class="fa-solid fa-database"></i>GU Course</div></div>
+          <div class="content">
+            <h3>Unit 1: Relational Data Model and Relational Database Constraints</h3>
+            <p class="meta"><strong>Book:</strong> Advanced Database Management System</p>
+            <p class="meta"><strong>Publisher:</strong> Centre for Distance and Online Education, Gauhati University | <strong>Year:</strong> July 2023</p>
+            <p class="meta"><strong>Pages:</strong> 7–31</p>
+            <span class="tag course">Course Unit</span><span class="tag book">Database Systems</span>
+          </div>
+        </article>
+
+        <article class="book-card" data-category="course">
+          <div class="cover"><div><i class="fa-solid fa-microchip"></i>GU Course</div></div>
+          <div class="content">
+            <h3>Unit 6: Process Scheduling Algorithms-I</h3>
+            <p class="meta"><strong>Book:</strong> Operating System</p>
+            <p class="meta"><strong>Publisher:</strong> Centre for Distance and Online Education, Gauhati University | <strong>Year:</strong> July 2023</p>
+            <p class="meta"><strong>Pages:</strong> 105–126</p>
+            <span class="tag course">Course Unit</span><span class="tag book">Operating Systems</span>
+          </div>
+        </article>
+
+        <article class="book-card" data-category="course">
+          <div class="cover"><div><i class="fa-solid fa-network-wired"></i>AI Unit</div></div>
+          <div class="content">
+            <h3>Artificial Neural Network and Rough Sets and their Applications</h3>
+            <p class="meta"><strong>Book:</strong> Data Mining and Warehousing</p>
+            <p class="meta"><strong>Publisher:</strong> Centre for Distance and Online Education, Gauhati University | <strong>Year:</strong> October 2024</p>
+            <p class="meta"><strong>Pages:</strong> 283–338</p>
+            <span class="tag course">Course Unit</span><span class="tag chapter">Data Mining</span>
+          </div>
+        </article>
+
+        <article class="book-card" data-category="chapter">
+          <div class="cover"><div><i class="fa-solid fa-cow"></i>Livestock AI</div></div>
+          <div class="content">
+            <h3>Advanced Livestock Behavior and Health Analysis through Collaborative Data Analysis</h3>
+            <p class="meta"><strong>Book:</strong> Fusion</p>
+            <p class="meta"><strong>Publisher:</strong> Dudhnoi College Teachers Association | <strong>Year:</strong> 30 November 2024</p>
+            <p class="meta"><strong>Pages:</strong> 356–375</p>
+            <span class="tag chapter">Book Chapter</span><span class="tag chapter">Applied AI</span>
+          </div>
+        </article>
+
+        <article class="book-card" data-category="book">
+          <div class="cover"><div><i class="fa-solid fa-computer"></i>Textbook</div></div>
+          <div class="content">
+            <h3>College Computer Science</h3>
+            <p class="meta"><strong>Publisher:</strong> Purbayaon Publication | <strong>Year:</strong> February 2019</p>
+            <p class="meta"><strong>ISBN:</strong> 978-93-88593-30-4</p>
+            <span class="tag book">Authored Book</span>
+          </div>
+        </article>
+
+        <article class="book-card" data-category="chapter">
+          <div class="cover"><div><i class="fa-solid fa-diagram-project"></i>Fuzzy Groupoid</div></div>
+          <div class="content">
+            <h3>Special Fuzzy Groupoid</h3>
+            <p class="meta"><strong>Book:</strong> Reflection</p>
+            <p class="meta"><strong>Publisher:</strong> UGC-HRDC, Gauhati University | <strong>Year:</strong> January 2019</p>
+            <p class="meta"><strong>Pages:</strong> 83–91</p>
+            <span class="tag chapter">Book Chapter</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Dr. Sisir Kumar Rajbongshi. All Rights Reserved.</p>
+    <p><a href="index.html" style="color:#fff;">Back to Home</a></p>
+  </footer>
+
+  <script>
+    const html=document.documentElement;
+    const themeToggle=document.getElementById("themeToggle");
+    const savedTheme=localStorage.getItem("theme");
+    if(savedTheme) html.setAttribute("data-theme", savedTheme);
+    function setIcon(){themeToggle.innerHTML=html.getAttribute("data-theme")==="dark"?'<i class="fa-solid fa-sun"></i>':'<i class="fa-solid fa-moon"></i>';}
+    setIcon();
+    themeToggle.addEventListener("click",()=>{const dark=html.getAttribute("data-theme")==="dark";html.setAttribute("data-theme",dark?"light":"dark");localStorage.setItem("theme",dark?"light":"dark");setIcon();});
+
+    const menuToggle=document.getElementById("menuToggle");
+    const navLinks=document.getElementById("navLinks");
+    menuToggle.addEventListener("click",()=>navLinks.classList.toggle("open"));
+
+    const search=document.getElementById("search");
+    const cards=[...document.querySelectorAll(".book-card")];
+    let filter="all";
+    document.querySelectorAll(".filters button").forEach(btn=>{
+      btn.addEventListener("click",()=>{
+        document.querySelectorAll(".filters button").forEach(b=>b.classList.remove("active"));
+        btn.classList.add("active");
+        filter=btn.dataset.filter;
+        update();
+      });
+    });
+    search.addEventListener("input",update);
+    function update(){
+      const q=search.value.toLowerCase();
+      cards.forEach(card=>{
+        const okFilter=filter==="all" || card.dataset.category.includes(filter);
+        const okSearch=card.innerText.toLowerCase().includes(q);
+        card.style.display=okFilter && okSearch ? "grid" : "none";
+      });
+    }
+  </script>
+</body>
+</html>
