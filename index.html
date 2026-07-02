@@ -4,15 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Dr. Sisir Kumar Rajbongshi | Computer Science Academician, Researcher & Innovator</title>
-  <meta name="description" content="Official academic website of Dr. Sisir Kumar Rajbongshi, Assistant Professor (Senior Scale, Stage-II) & Head, Department of Computer Science, PDUAM Amjonga, Assam." />
-  <meta name="keywords" content="Dr Sisir Kumar Rajbongshi, Computer Science, PDUAM Amjonga, Fuzzy Algebra, Artificial Intelligence, Machine Learning, Federated Learning, Data Mining, Assam" />
-  <meta name="author" content="Dr. Sisir Kumar Rajbongshi" />
-
-  <meta property="og:title" content="Dr. Sisir Kumar Rajbongshi | Academic Profile" />
-  <meta property="og:description" content="Assistant Professor (Senior Scale, Stage-II) & Head, Department of Computer Science, PDUAM Amjonga." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="p.jpg" />
+  <title>Dr. Sisir Kumar Rajbongshi | Computer Science Academician</title>
+  <meta name="description" content="Official academic website of Dr. Sisir Kumar Rajbongshi, Assistant Professor (Senior Scale, Stage-II) & Head, Department of Computer Science, PDUAM Amjonga." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -33,8 +26,6 @@
       --border: #d7e2ed;
       --shadow: 0 18px 45px rgba(15, 61, 94, .12);
       --radius: 22px;
-      --radius-sm: 14px;
-      --max: 1180px;
     }
 
     [data-theme="dark"] {
@@ -54,11 +45,8 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: Inter, system-ui, -apple-system, Segoe UI, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(21, 94, 138, .12), transparent 32rem),
-        radial-gradient(circle at top right, rgba(194, 65, 12, .08), transparent 28rem),
-        var(--bg);
+      font-family: Inter, system-ui, sans-serif;
+      background: var(--bg);
       color: var(--text);
       line-height: 1.75;
     }
@@ -66,150 +54,171 @@
     a { color: var(--primary-2); text-decoration: none; }
     a:hover { color: var(--accent); }
 
-    .container { max-width: var(--max); margin: 0 auto; padding: 0 1.25rem; }
-
-    .skip-link {
-      position: absolute; left: -999px; top: 1rem; background: var(--surface); color: var(--text);
-      padding: .6rem 1rem; border-radius: 999px; z-index: 3000;
-    }
-    .skip-link:focus { left: 1rem; }
-
-    header {
-      position: relative;
-      min-height: 88vh;
-      display: grid;
-      align-items: center;
-      overflow: hidden;
-      background:
-        linear-gradient(135deg, rgba(9, 38, 61, .96), rgba(17, 92, 135, .92)),
-        url("p.jpg") center/cover no-repeat;
-      color: #fff;
-    }
-
-    header::before {
-      content: "";
-      position: absolute; inset: 0;
-      background:
-        linear-gradient(90deg, rgba(5, 21, 36, .92) 0%, rgba(7, 30, 51, .75) 48%, rgba(7, 30, 51, .35) 100%);
-    }
+    .container { max-width: 1180px; margin: auto; padding: 0 1.25rem; }
 
     .topbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1500;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(255,255,255,.9);
       backdrop-filter: blur(14px);
-      background: rgba(255, 255, 255, .82);
-      border-bottom: 1px solid rgba(215, 226, 237, .75);
-      transition: .25s ease;
+      border-bottom: 1px solid var(--border);
     }
-
-    [data-theme="dark"] .topbar { background: rgba(11, 18, 32, .82); border-color: rgba(37, 54, 80, .85); }
+    [data-theme="dark"] .topbar { background: rgba(11,18,32,.9); }
 
     .nav {
-      max-width: var(--max);
+      max-width: 1180px;
       margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 0 1.25rem;
     }
 
     .brand {
-      display: flex; align-items: center; gap: .7rem; font-weight: 800; color: var(--primary);
-      letter-spacing: -.02em;
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      font-weight: 800;
+      color: var(--primary);
     }
 
     .brand-mark {
-      width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center;
-      background: linear-gradient(135deg, var(--primary), var(--primary-2));
-      color: #fff; font-family: "Noto Serif", serif;
-      box-shadow: 0 8px 20px rgba(21,94,138,.25);
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg,#0f3d5e,#155e8a);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-family: "Noto Serif", serif;
+      font-weight: 800;
     }
 
-    .nav-links { display: flex; gap: .35rem; align-items: center; }
+    .nav-links {
+      display: flex;
+      gap: .35rem;
+      align-items: center;
+    }
+
     .nav-links a {
-      color: var(--text); font-weight: 700; font-size: .92rem;
-      padding: .55rem .7rem; border-radius: 999px;
+      font-weight: 800;
+      color: var(--text);
+      padding: .55rem .68rem;
+      border-radius: 999px;
+      font-size: .92rem;
     }
-    .nav-links a:hover { background: rgba(21, 94, 138, .12); color: var(--primary-2); }
 
-    .menu-toggle, .theme-toggle {
-      border: 0; cursor: pointer; border-radius: 999px; color: #fff; background: var(--primary-2);
-      width: 42px; height: 42px; display: grid; place-items: center; box-shadow: var(--shadow);
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: rgba(21,94,138,.12);
+      color: var(--primary-2);
+      text-decoration: none;
     }
+
+    .theme-toggle, .menu-toggle {
+      border: 0;
+      cursor: pointer;
+      border-radius: 999px;
+      background: var(--primary-2);
+      color: #fff;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+    }
+
     .menu-toggle { display: none; }
 
+    header {
+      min-height: calc(100vh - 68px);
+      display: grid;
+      align-items: center;
+      background: linear-gradient(135deg,#082238,#155e8a);
+      color: #fff;
+      overflow: hidden;
+    }
+
     .hero {
-      position: relative; z-index: 2;
-      padding: 7rem 0 4rem;
       display: grid;
       grid-template-columns: 1.2fr .8fr;
       gap: 2rem;
       align-items: center;
+      padding: 4rem 0;
     }
 
     .eyebrow {
-      display: inline-flex; align-items: center; gap: .5rem;
-      background: rgba(255, 255, 255, .14);
-      border: 1px solid rgba(255, 255, 255, .25);
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(255,255,255,.13);
+      border: 1px solid rgba(255,255,255,.25);
       padding: .45rem .8rem;
       border-radius: 999px;
-      font-weight: 700;
+      font-weight: 800;
       margin-bottom: 1rem;
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 5rem);
-      line-height: 1.02;
+      font-size: clamp(2.5rem,5vw,5rem);
+      line-height: 1.03;
       letter-spacing: -.055em;
       font-weight: 800;
-      max-width: 850px;
+      margin-bottom: .6rem;
     }
 
     .assamese {
       display: block;
       font-family: "Noto Serif", serif;
-      font-size: clamp(1.1rem, 2vw, 1.6rem);
+      font-size: clamp(1.1rem,2vw,1.6rem);
       letter-spacing: 0;
-      margin-top: .8rem;
       color: #dceeff;
+      margin-top: .5rem;
     }
 
     .hero-subtitle {
-      font-size: 1.17rem;
-      max-width: 720px;
-      margin: 1.2rem 0 1rem;
-      color: #e9f4ff;
+      font-size: 1.14rem;
+      color: #e8f4ff;
+      max-width: 760px;
+      margin: 1rem 0;
     }
 
     .hero-motto {
       color: #fff1d8;
-      font-weight: 700;
+      font-weight: 800;
       border-left: 4px solid var(--gold);
       padding-left: 1rem;
-      max-width: 700px;
       margin: 1.4rem 0;
     }
 
-    .hero-actions { display: flex; flex-wrap: wrap; gap: .85rem; margin-top: 1.5rem; }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .85rem;
+      margin-top: 1.4rem;
+    }
 
     .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
       min-height: 46px;
       padding: .72rem 1.05rem;
       border-radius: 999px;
       background: #fff;
       color: #0f3d5e;
       font-weight: 800;
-      border: 1px solid rgba(255,255,255,.35);
       box-shadow: 0 12px 28px rgba(0,0,0,.16);
     }
-    .btn:hover { transform: translateY(-2px); text-decoration: none; color: #0f3d5e; }
+
     .btn.primary { background: var(--accent); color: white; }
-    .btn.ghost { background: rgba(255,255,255,.12); color: white; }
+    .btn.ghost { background: rgba(255,255,255,.12); color: white; border: 1px solid rgba(255,255,255,.25); }
+    .btn:hover { transform: translateY(-2px); text-decoration: none; }
 
     .profile-card {
       justify-self: end;
-      width: min(360px, 100%);
+      width: min(360px,100%);
       background: rgba(255,255,255,.12);
       border: 1px solid rgba(255,255,255,.25);
       backdrop-filter: blur(14px);
@@ -226,7 +235,7 @@
       border: 4px solid rgba(255,255,255,.85);
     }
 
-    .profile-card .quick {
+    .quick {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: .7rem;
@@ -240,190 +249,91 @@
       padding: .75rem;
       text-align: center;
     }
+
     .mini-stat strong { display: block; font-size: 1.35rem; color: #fff; }
-    .mini-stat span { font-size: .78rem; color: #e6f3ff; font-weight: 700; }
+    .mini-stat span { font-size: .78rem; color: #e6f3ff; font-weight: 800; }
+
+    main { padding: 2rem 0; }
 
     .section {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: clamp(1.4rem, 3vw, 2.4rem);
-      margin: 1.35rem 0;
+      padding: 2rem;
+      margin-bottom: 1.4rem;
       box-shadow: var(--shadow);
-    }
-
-    .section-head {
-      display: flex; gap: 1rem; justify-content: space-between; align-items: end; margin-bottom: 1.2rem;
     }
 
     .kicker {
       color: var(--accent);
+      font-size: .8rem;
       text-transform: uppercase;
       letter-spacing: .14em;
-      font-size: .78rem;
       font-weight: 800;
     }
 
     h2 {
-      font-size: clamp(1.7rem, 3vw, 2.35rem);
-      line-height: 1.12;
-      letter-spacing: -.04em;
       color: var(--primary);
-      margin-top: .2rem;
+      font-size: 2rem;
+      letter-spacing: -.04em;
+      margin: .2rem 0 1rem;
     }
 
-    h3 { color: var(--primary); font-size: 1.18rem; margin: 1rem 0 .5rem; }
+    .lead { color: var(--muted); max-width: 900px; }
 
-    .lead { font-size: 1.05rem; color: var(--muted); max-width: 900px; }
-
-    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
-    .col-4 { grid-column: span 4; }
-    .col-6 { grid-column: span 6; }
-    .col-8 { grid-column: span 8; }
-    .col-12 { grid-column: span 12; }
-
+    .grid { display: grid; grid-template-columns: repeat(12,1fr); gap: 1rem; }
     .card {
       background: var(--surface-2);
       border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 1.05rem;
+      border-radius: 18px;
+      padding: 1.2rem;
       height: 100%;
     }
 
-    .card i { color: var(--primary-2); font-size: 1.35rem; margin-bottom: .55rem; }
-    .card p, .card li { color: var(--muted); }
+    .card i { color: var(--primary-2); font-size: 1.6rem; margin-bottom: .6rem; }
+    .card h3 { color: var(--primary); margin-bottom: .4rem; }
+    .card p { color: var(--muted); }
+
+    .col-3 { grid-column: span 3; }
+    .col-4 { grid-column: span 4; }
+    .col-6 { grid-column: span 6; }
+    .col-12 { grid-column: span 12; }
 
     .stats-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+      gap: 1rem;
       margin-top: 1.2rem;
     }
 
     .stat {
-      background: linear-gradient(180deg, var(--surface-2), var(--surface));
+      background: var(--surface-2);
       border: 1px solid var(--border);
-      padding: 1.25rem 1rem;
       border-radius: 18px;
+      padding: 1.2rem;
       text-align: center;
     }
 
-    .stat strong {
-      display: block;
-      font-size: 2.05rem;
-      line-height: 1;
-      color: var(--primary-2);
-      font-weight: 800;
-      letter-spacing: -.05em;
-    }
-    .stat span { color: var(--muted); font-weight: 800; font-size: .88rem; }
-
-    .chips { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .8rem; }
-    .chip {
-      border: 1px solid var(--border);
-      background: var(--surface-2);
-      color: var(--primary);
-      border-radius: 999px;
-      padding: .42rem .75rem;
-      font-weight: 800;
-      font-size: .86rem;
-    }
-
-    .pub-toolbar {
-      display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; margin: 1rem 0 1.25rem;
-    }
-
-    .pub-toolbar input {
-      flex: 1 1 260px;
-      padding: .78rem 1rem;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--text);
-      outline: none;
-    }
-
-    .filter-buttons { display: flex; flex-wrap: wrap; gap: .45rem; }
-    .filter-buttons button {
-      border: 0;
-      cursor: pointer;
-      border-radius: 999px;
-      background: var(--primary);
-      color: #fff;
-      font-weight: 800;
-      padding: .62rem .8rem;
-    }
-    .filter-buttons button.active, .filter-buttons button:hover { background: var(--accent); }
-
-    .pub-item {
-      border-bottom: 1px dashed var(--border);
-      padding: 1rem 0;
-    }
-    .pub-item:last-child { border-bottom: 0; }
-    .pub-item h3 { margin: 0 0 .25rem; line-height: 1.35; }
-    .pub-item p { color: var(--muted); }
-
-    .badge {
-      display: inline-block;
-      margin-top: .45rem;
-      margin-right: .3rem;
-      padding: .22rem .58rem;
-      border-radius: 999px;
-      color: white;
-      background: var(--accent);
-      font-size: .75rem;
-      font-weight: 800;
-    }
-    .badge.scopus { background: #1f78b4; }
-    .badge.book { background: #7c3aed; }
-    .badge.ipr { background: #0f766e; }
-
-    .timeline { position: relative; padding-left: 1.2rem; border-left: 3px solid var(--primary-2); }
-    .timeline-item { margin-bottom: 1rem; padding-left: .8rem; }
-    .timeline-item strong { color: var(--primary-2); }
-
-    .resource-card .btn { margin-top: .75rem; box-shadow: none; }
-
-    .contact-links {
-      display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1rem;
-    }
-    .contact-links a {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 44px; height: 44px; border-radius: 50%;
-      background: var(--primary);
-      color: #fff;
-      font-size: 1.1rem;
-    }
-    .contact-links a:hover { background: var(--accent); color: #fff; text-decoration: none; transform: translateY(-2px); }
+    .stat strong { display: block; color: var(--primary-2); font-size: 2rem; }
+    .stat span { color: var(--muted); font-weight: 800; font-size: .9rem; }
 
     footer {
-      margin-top: 3rem;
       background: #082238;
       color: #e9f4ff;
-      padding: 2.5rem 1rem;
       text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
     }
 
-    .back-top {
-      position: fixed;
-      right: 1rem;
-      bottom: 4.4rem;
-      width: 46px;
-      height: 46px;
-      display: none;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--accent);
-      color: #fff;
-      z-index: 1200;
-      box-shadow: var(--shadow);
-    }
-
-    @media (max-width: 980px) {
-      .hero { grid-template-columns: 1fr; text-align: left; }
+    @media(max-width: 980px) {
+      .hero { grid-template-columns: 1fr; }
       .profile-card { justify-self: start; max-width: 320px; }
       .nav-links {
         display: none;
         position: absolute;
-        top: 68px; left: 1rem; right: 1rem;
+        top: 68px;
+        left: 1rem;
+        right: 1rem;
         flex-direction: column;
         background: var(--surface);
         border: 1px solid var(--border);
@@ -434,69 +344,65 @@
       .nav-links.open { display: flex; }
       .nav-links a { width: 100%; }
       .menu-toggle { display: grid; }
-      .col-4, .col-6, .col-8 { grid-column: span 12; }
+      .col-3,.col-4,.col-6 { grid-column: span 12; }
     }
 
-    @media (max-width: 560px) {
+    @media(max-width: 560px) {
       header { min-height: auto; }
-      .hero { padding-top: 6rem; }
-      .hero-actions { flex-direction: column; align-items: stretch; }
-      .profile-card { width: 100%; }
-      .section { border-radius: 18px; }
-    }
-
-    @media print {
-      .topbar, .theme-toggle, .back-top, nav, .btn { display: none !important; }
-      header { min-height: auto; background: white; color: #111; }
-      header::before { display: none; }
-      body { background: white; color: #111; }
-      .section { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+      .hero { padding: 3rem 0; }
+      .hero-actions { flex-direction: column; }
+      .section { padding: 1.2rem; }
     }
   </style>
 </head>
 
 <body>
-  <a href="#main" class="skip-link">Skip to content</a>
-
   <div class="topbar">
     <div class="nav">
-      <a class="brand" href="#home" aria-label="Home">
+      <a class="brand active" href="index.html">
         <span class="brand-mark">SKR</span>
         <span>Dr. S. K. Rajbongshi</span>
       </a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation"><i class="fa-solid fa-bars"></i></button>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
       <div class="nav-links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        
+        <a class="active" href="index.html">Home</a>
+        <a href="research.html">Research</a>
         <a href="publications.html">Publications</a>
         <a href="books.html">Books</a>
         <a href="patent.html">Patent</a>
-        <a href="#recognition">Recognition</a>
+        <a href="awards.html">Recognition</a>
         <a href="teaching.html">Teaching</a>
-        <a href="#resources">Resources</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html#resources">Resources</a>
+        <a href="index.html#contact">Contact</a>
       </div>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <i class="fa-solid fa-moon"></i>
+      </button>
     </div>
   </div>
 
-  <header id="home">
+  <header>
     <div class="container hero">
       <div>
         <div class="eyebrow"><i class="fa-solid fa-graduation-cap"></i> Computer Science Academician</div>
         <h1>Dr. Sisir Kumar Rajbongshi <span class="assamese">ড° শিশিৰ কুমাৰ ৰাজবংশী</span></h1>
         <p class="hero-subtitle">Assistant Professor (Senior Scale, Stage-II) & Head, Department of Computer Science, Pandit Deendayal Upadhyaya Adarsha Mahavidyalaya (PDUAM), Amjonga, Assam.</p>
         <p class="hero-motto">Bridging Teaching, Research, Innovation and Technology for Sustainable Higher Education.</p>
+
         <div class="hero-actions">
-          <a class="btn primary" href="#publications"><i class="fa-solid fa-book-open-reader"></i> View Publications</a>
-          <a class="btn" href="cv.pdf" download><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
-          <a class="btn ghost" href="#contact"><i class="fa-solid fa-paper-plane"></i> Contact</a>
+          <a class="btn primary" href="research.html"><i class="fa-solid fa-microscope"></i> Explore Research</a>
+          <a class="btn" href="publications.html"><i class="fa-solid fa-book-open-reader"></i> Publications</a>
+          <a class="btn ghost" href="cv.pdf" download><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
         </div>
       </div>
 
-      <aside class="profile-card" aria-label="Academic highlights">
-        <img src="p.jpg" alt="Portrait of Dr. Sisir Kumar Rajbongshi">
+      <aside class="profile-card">
+        <img src="p.jpg" alt="Dr. Sisir Kumar Rajbongshi">
         <div class="quick">
           <div class="mini-stat"><strong>25+</strong><span>Publications</span></div>
           <div class="mini-stat"><strong>14+</strong><span>Books/Chapters</span></div>
@@ -507,14 +413,10 @@
     </div>
   </header>
 
-  <main id="main" class="container">
-    <section id="about" class="section">
-      <div class="section-head">
-        <div>
-          <p class="kicker">Academic Identity</p>
-          <h2>About Me</h2>
-        </div>
-      </div>
+  <main class="container">
+    <section class="section" id="about">
+      <p class="kicker">Academic Identity</p>
+      <h2>About Me</h2>
       <p class="lead">I am an academician, researcher, author, innovator and academic administrator specializing in Computer Science and Information Technology. My work combines teaching, research, innovation and public service with a focus on emerging technologies and socially meaningful applications.</p>
 
       <div class="stats-grid">
@@ -522,215 +424,36 @@
         <div class="stat"><strong>500+</strong><span>Students Taught</span></div>
         <div class="stat"><strong>3</strong><span>Patents / IPR</span></div>
         <div class="stat"><strong>14+</strong><span>Books & Chapters</span></div>
-        <div class="stat"><strong>14</strong><span>iGOT Courses</span></div>
-      </div>
-
-      <div class="grid" style="margin-top:1.2rem;">
-        <div class="card col-6">
-          <i class="fa-solid fa-user-graduate"></i>
-          <h3>Academic Qualifications</h3>
-          <ul>
-            <li>Ph.D. in Information Technology, Gauhati University</li>
-            <li>M.Sc. in Computer Science, Gauhati University</li>
-            <li>B.Sc. in Computer Science, Gauhati University</li>
-            <li>GATE Qualified in Computer Science & Information Technology</li>
-          </ul>
-        </div>
-        <div class="card col-6">
-          <i class="fa-solid fa-microscope"></i>
-          <h3>Research Interests</h3>
-          <div class="chips">
-            <span class="chip">AI</span><span class="chip">Machine Learning</span><span class="chip">Explainable AI</span><span class="chip">Federated Learning</span><span class="chip">Data Mining</span><span class="chip">Fuzzy Algebra</span><span class="chip">Healthcare AI</span><span class="chip">Agricultural AI</span>
-          </div>
-        </div>
       </div>
     </section>
 
-    <section id="research" class="section">
-      <p class="kicker">Research Direction</p>
-      <h2>Research Profile</h2>
-      <p class="lead">My research bridges theoretical Computer Science and applied intelligent systems. I work on mathematical models of uncertainty, Fuzzy Algebra, AI-enabled decision systems, explainable AI, Federated Learning and data-driven applications for healthcare, agriculture and education.</p>
-
-      <div class="grid" style="margin-top:1.2rem;">
-        <div class="card col-4"><i class="fa-solid fa-brain"></i><h3>AI & Machine Learning</h3><p>Explainable AI, Federated Learning, predictive analytics, healthcare AI and intelligent applications.</p></div>
-        <div class="card col-4"><i class="fa-solid fa-square-root-variable"></i><h3>Fuzzy Algebra</h3><p>Special fuzzy Boolean algebra, L-fuzzy sets, uncertainty modelling and theoretical computing.</p></div>
-        <div class="card col-4"><i class="fa-solid fa-seedling"></i><h3>Applied Informatics</h3><p>AI in agriculture, education, ecological informatics, decision support and sustainable technology.</p></div>
-      </div>
-    </section>
-
-    <section id="publications" class="section">
-      <p class="kicker">Scholarship</p>
-      <h2>Selected Publications</h2>
-      <p class="lead">A selected list of recent and representative publications is shown below. The full publication list is maintained in my CV and Google Scholar profile.</p>
-
-      <div class="pub-toolbar">
-        <input type="search" id="pubSearch" placeholder="Search publications by title, topic or author..." aria-label="Search publications">
-        <div class="filter-buttons">
-          <button class="active" data-filter="all">All</button>
-          <button data-filter="scopus">Scopus</button>
-          <button data-filter="journal">Journal</button>
-          <button data-filter="conference">Conference</button>
-        </div>
-      </div>
-
-      <div class="publications">
-        <article class="pub-item" data-category="journal scopus">
-          <h3>SmartGuard: An Intelligent LPG Leakage Detection and Control System</h3>
-          <p>Bairagi, P. P., Patir, B., Bora, P., Deka, L., & Rajbongshi, S. K. International Journal of Engineering Trends and Technology. ISSN: 2231-5381.</p>
-          <span class="badge scopus">Scopus Indexed</span>
-        </article>
-
-        <article class="pub-item" data-category="journal">
-          <h3>A Comparative Analysis of Predictive Machine Learning Models on Student Mental Health Impact on Academic Outcomes</h3>
-          <p>Deka, B. K., Dutta, A., Sarmah, K., Sarkar, N. K., Gogoi, S., Lyngdoh, J., Rajbongshi, S. K., & Das, A. International Journal of Advances in Signal and Image Sciences, pp. 924–932.</p>
-          <span class="badge">Journal Article</span>
-        </article>
-
-        <article class="pub-item" data-category="journal scopus">
-          <h3>Fuzzy-based Augmentation of Federated Averaging for Enhanced Decentralized Machine Learning</h3>
-          <p>Rajbongshi, S. K., Sarmah, K., Patir, B., Gogoi, S., & Sarmah, S. International Journal on Recent and Innovation Trends in Computing and Communication, 11(11), 1032–1038.</p>
-          <span class="badge scopus">Scopus Indexed</span>
-        </article>
-
-        <article class="pub-item" data-category="journal scopus">
-          <h3>A Comprehensive Study on State-of-Art Learning Algorithms in Emotion Recognition</h3>
-          <p>Sarmah, K., Das, H. C., Rajbongshi, S. K., & Gogoi, S. IJRITCC, 11, 717–732.</p>
-          <span class="badge scopus">Scopus Indexed</span>
-        </article>
-
-        <article class="pub-item" data-category="journal scopus">
-          <h3>Unveiling the Tapestry: Federated Learning Challenges and Opportunities in the Indian Educational Landscape</h3>
-          <p>Rajbongshi, S. K., Sarmah, K., & Sarmah, S. Mathematical Statistician and Engineering Applications, 71(2), 747–762.</p>
-          <span class="badge scopus">Scopus Indexed</span>
-        </article>
-
-        <article class="pub-item" data-category="journal scopus">
-          <h3>Special Fuzzy Boolean Ring</h3>
-          <p>Rajbongshi, S. K., & Talukdar, D. International Journal of Engineering Trends and Technology, 43(7), 398–400.</p>
-          <span class="badge scopus">Scopus Indexed</span>
-        </article>
-
-        <article class="pub-item" data-category="conference">
-          <h3>p-Adic Encoding of L-Fuzzy Sets for Sustainable Decision-Making in Uncertain Environments</h3>
-          <p>Presented at International Conference on Frontiers in Science: An Integrative Approach in Solving Global Challenges, ICFS-2025, Krishnagar Government College.</p>
-          <span class="badge">International Conference</span>
-        </article>
-      </div>
-    </section>
-
-    <section id="books" class="section">
-      <p class="kicker">Authorship & Editorial Work</p>
-      <h2>Books, Edited Volumes & Book Chapters</h2>
-
+    <section class="section">
+      <p class="kicker">Explore</p>
+      <h2>Academic Portfolio</h2>
       <div class="grid">
-        <div class="card col-6">
-          <i class="fa-solid fa-book"></i>
-          <h3>Authored Books</h3>
-          <ul>
-            <li><strong>Computer Fundamentals and C Programming</strong>. Deep Science Publishing, 2025. DOI: 10.70593/978-93-7185-406-1.</li>
-            <li><strong>Advanced Database Management System</strong>. Gauhati University Press, 2023.</li>
-            <li><strong>Operating System</strong>. Gauhati University Press, 2021.</li>
-            <li><strong>College Computer Science</strong>. Purbayaon Publication, 2019.</li>
-          </ul>
-        </div>
-
-        <div class="card col-6">
-          <i class="fa-solid fa-layer-group"></i>
-          <h3>Edited Volumes</h3>
-          <ul>
-            <li><strong>Multidisciplinary Research: Innovations in Science, Arts, and Commerce</strong>. Deep Science Publication, 2025.</li>
-            <li><strong>Advances in Multidisciplinary Research and Innovation</strong>. Deep Science Publishing.</li>
-          </ul>
-        </div>
-
-        <div class="card col-12">
-          <i class="fa-solid fa-bookmark"></i>
-          <h3>Selected Book Chapters</h3>
-          <ul>
-            <li><strong>Federated Learning: A Game-Changer in Agricultural Decision-Making and Precision Farming</strong>. CRC Press, 2025.</li>
-            <li><strong>Integration of p-adic Numbering in L-Fuzzy Set Representation</strong>. Contemporary Explorations in Multidisciplinary Sciences, 2025.</li>
-            <li><strong>Smart Decisions in Unclear Situations: A Fuzzy Approach to Business Strategy</strong>. Research Synthesis, Global Net Publication, 2025.</li>
-            <li><strong>Fuzzy Logic-Based Decision Support for Business under Uncertainty</strong>. Nucleus, Tinsukia College Publication, 2025.</li>
-            <li><strong>Artificial Neural Network & Rough Sets and their Applications</strong>. Data Mining and Warehousing, CDOE, Gauhati University, 2024.</li>
-          </ul>
-        </div>
+        <a class="card col-4" href="research.html"><i class="fa-solid fa-microscope"></i><h3>Research</h3><p>AI, Machine Learning, Explainable AI, Federated Learning, Fuzzy Algebra and applied intelligent systems.</p></a>
+        <a class="card col-4" href="publications.html"><i class="fa-solid fa-file-lines"></i><h3>Publications</h3><p>Journal articles, conference papers and selected research outputs.</p></a>
+        <a class="card col-4" href="books.html"><i class="fa-solid fa-book"></i><h3>Books</h3><p>Authored books, edited volumes, book chapters and course units.</p></a>
+        <a class="card col-4" href="patent.html"><i class="fa-solid fa-lightbulb"></i><h3>Patents & IPR</h3><p>Utility patents, design registration and innovation profile.</p></a>
+        <a class="card col-4" href="awards.html"><i class="fa-solid fa-award"></i><h3>Recognition</h3><p>Academic service, reviewer roles, editorial work and government assignments.</p></a>
+        <a class="card col-4" href="teaching.html"><i class="fa-solid fa-chalkboard-user"></i><h3>Teaching</h3><p>Teaching portfolio, subjects taught, student resources and mentoring.</p></a>
       </div>
     </section>
 
-    <section id="ipr" class="section">
-      <p class="kicker">Innovation</p>
-      <h2>Patents & Intellectual Property</h2>
-      <div class="grid">
-        <div class="card col-4">
-          <i class="fa-solid fa-fingerprint"></i>
-          <h3>Explainable Generative AI Model for Transparent Speaker Verification Decisions</h3>
-          <p>Indian Utility Patent | Application No.: 202631023485 | Filed: 27/02/2026 | Published: 06/03/2026.</p>
-          <span class="badge ipr">Utility Patent</span>
-        </div>
-        <div class="card col-4">
-          <i class="fa-solid fa-heart-pulse"></i>
-          <h3>Real-Time Heart Attack Detection via Voice Analysis Using Deep Learning</h3>
-          <p>Indian Utility Patent | Application No.: 202531078051 A | Filed: 17/08/2025 | Published: 21/11/2025.</p>
-          <span class="badge ipr">Utility Patent</span>
-        </div>
-        <div class="card col-4">
-          <i class="fa-solid fa-flask-vial"></i>
-          <h3>Smart Chemical Composition Monitoring Device</h3>
-          <p>Design Application No.: 493109-001 | Accepted and published in Journal No. 24/2026.</p>
-          <span class="badge ipr">Design Registration</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="recognition" class="section">
-      <p class="kicker">Service & Recognition</p>
-      <h2>Professional Recognition & Academic Service</h2>
-      <div class="grid">
-        <div class="card col-4"><i class="fa-solid fa-microphone"></i><h3>Invited Expert Talk</h3><p>Delivered Expert Talk on Research Methodology at Assam Don Bosco University, School of Technology, 3 October 2023.</p></div>
-        <div class="card col-4"><i class="fa-solid fa-pen-nib"></i><h3>IEEE Reviewer</h3><p>Reviewer for the 3rd IEEE International Conference on Blockchain and Distributed Systems Security, ICBDS 2024.</p></div>
-        <div class="card col-4"><i class="fa-solid fa-book-journal-whills"></i><h3>Editorial Board</h3><p>Member, Editorial Board, Deep Science Publishing.</p></div>
-        <div class="card col-4"><i class="fa-solid fa-landmark"></i><h3>National Assignment</h3><p>Appointed Observer for NEET (UG) 2026 by the National Testing Agency, Ministry of Education, Government of India.</p></div>
-        <div class="card col-4"><i class="fa-solid fa-scale-balanced"></i><h3>Public Service</h3><p>Performed election duties on multiple occasions, including responsibility as Sector Officer.</p></div>
-        <div class="card col-4"><i class="fa-solid fa-certificate"></i><h3>Professional Development</h3><p>Completed 14 iGOT Karmayogi courses and participated in multiple FDPs, workshops and refresher programmes.</p></div>
-      </div>
-    </section>
-
-    <section id="teaching" class="section">
-      <p class="kicker">Teaching & Mentorship</p>
-      <h2>Teaching and Academic Contributions</h2>
-      <p class="lead">As Head of the Department of Computer Science, I contribute to undergraduate teaching, laboratory instruction, curriculum implementation, ICT-enabled learning, student mentoring, examination responsibilities and departmental development.</p>
-
-      <h3>Teaching Areas</h3>
-      <div class="chips">
-        <span class="chip">Programming</span><span class="chip">Data Structures</span><span class="chip">DBMS</span><span class="chip">Operating Systems</span><span class="chip">Computer Networks</span><span class="chip">Software Engineering</span><span class="chip">AI</span><span class="chip">Machine Learning</span><span class="chip">Data Mining</span><span class="chip">Web Technologies</span>
-      </div>
-
-      <h3>Professional Development Timeline</h3>
-      <div class="timeline">
-        <div class="timeline-item"><strong>2025:</strong> Refresher Course on Network Security and Network Science, Malaviya Mission Teacher Training Centre.</div>
-        <div class="timeline-item"><strong>2024:</strong> International FDP on AI for Sustainable Development, IEEE Region 10 / IEEE Pune Section / VIIT Pune.</div>
-        <div class="timeline-item"><strong>2023:</strong> Workshop on AI Tools; Workshop on NEP 2020.</div>
-        <div class="timeline-item"><strong>2022:</strong> National FDP on MOODLE, GIMT Guwahati.</div>
-        <div class="timeline-item"><strong>2021:</strong> International FDP on Innovative Techniques for Professional Development of Teachers in Higher Education, NEHU Shillong.</div>
-        <div class="timeline-item"><strong>2020:</strong> FDP on E-Content Development and Educational Video Creation.</div>
-        <div class="timeline-item"><strong>2018–2019:</strong> UGC-Sponsored Orientation Programme, Gauhati University.</div>
-      </div>
-    </section>
-
-    <section id="resources" class="section">
+    <section class="section" id="resources">
       <p class="kicker">Student Support</p>
-      <h2>Academic Resources for Students</h2>
+      <h2>Resources for Students</h2>
       <div class="grid">
-        <div class="card col-3 resource-card"><i class="fa-solid fa-book-open"></i><h3>Class Notes</h3><p>Access subject notes and learning materials.</p><a class="btn" href="https://drive.google.com/drive/folders/14tOddTXJsFs4oOJUfQrEmBJOIEBNz58G?usp=drive_link" target="_blank">Open Notes</a></div>
-        <div class="card col-3 resource-card"><i class="fa-brands fa-youtube"></i><h3>Video Lectures</h3><p>Watch recorded lectures on YouTube.</p><a class="btn" href="https://youtube.com/@85sisir" target="_blank">Visit Channel</a></div>
-        <div class="card col-3 resource-card"><i class="fa-solid fa-file-lines"></i><h3>Question Papers</h3><p>Access previous years' question papers.</p><a class="btn" href="https://drive.google.com/drive/folders/1vMoI5Lq9IbOr1ZjGpihMzB4Iy21HoiuX?usp=sharing" target="_blank">View Papers</a></div>
-        <div class="card col-3 resource-card"><i class="fa-solid fa-mobile-screen"></i><h3>Android Apps</h3><p>Assamese Land Calculator and Assamese Wood Calculator.</p><a class="btn" href="app-debug.apk" download>Land App</a></div>
+        <div class="card col-3"><i class="fa-solid fa-book-open"></i><h3>Class Notes</h3><p>Subject notes and materials.</p><a href="https://drive.google.com/drive/folders/14tOddTXJsFs4oOJUfQrEmBJOIEBNz58G?usp=drive_link" target="_blank">Open Notes</a></div>
+        <div class="card col-3"><i class="fa-brands fa-youtube"></i><h3>Video Lectures</h3><p>Recorded lectures.</p><a href="https://youtube.com/@85sisir" target="_blank">Visit Channel</a></div>
+        <div class="card col-3"><i class="fa-solid fa-file-lines"></i><h3>Question Papers</h3><p>Previous year papers.</p><a href="https://drive.google.com/drive/folders/1vMoI5Lq9IbOr1ZjGpihMzB4Iy21HoiuX?usp=sharing" target="_blank">View Papers</a></div>
+        <div class="card col-3"><i class="fa-solid fa-mobile-screen"></i><h3>Android Apps</h3><p>Community utility apps.</p><a href="app-debug.apk" download>Download App</a></div>
       </div>
     </section>
 
-    <section id="contact" class="section">
-      <p class="kicker">Connect</p>
-      <h2>Contact & Academic Profiles</h2>
+    <section class="section" id="contact">
+      <p class="kicker">Contact</p>
+      <h2>Academic Profiles & Contact</h2>
       <div class="grid">
         <div class="card col-6">
           <h3>Contact Information</h3>
@@ -739,29 +462,21 @@
           <p><i class="fa-solid fa-phone"></i> <a href="tel:+919707721185">+91-9707721185</a></p>
           <p><i class="fa-solid fa-location-dot"></i> Department of Computer Science, PDUAM, Amjonga, Goalpara, Assam – 783124</p>
         </div>
+
         <div class="card col-6">
           <h3>Academic Profiles</h3>
-          <p><a href="https://orcid.org/0000-0003-1874-6882" target="_blank">ORCID: 0000-0003-1874-6882</a></p>
+          <p><a href="https://orcid.org/0000-0003-1874-6882" target="_blank">ORCID</a></p>
           <p><a href="https://scholar.google.com/citations?user=FnEacOIAAAAJ&hl=en" target="_blank">Google Scholar</a></p>
           <p><a href="https://www.researchgate.net/profile/Dr-Sisir-Rajbongshi" target="_blank">ResearchGate</a></p>
           <p><a href="https://sisirrajbongshi.github.io/SISIR/" target="_blank">Academic Website</a></p>
-
-          <div class="contact-links" aria-label="Social and academic profile links">
-            <a href="https://orcid.org/0000-0003-1874-6882" target="_blank" title="ORCID"><i class="fa-brands fa-orcid"></i></a>
-            <a href="https://scholar.google.com/citations?user=FnEacOIAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
-            <a href="https://www.researchgate.net/profile/Dr-Sisir-Rajbongshi" target="_blank" title="ResearchGate"><i class="fa-brands fa-researchgate"></i></a>
-            <a href="https://www.facebook.com/sisir.rajbongshi/" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <a href="#home" class="back-top" id="backTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
-
   <footer>
     <p>&copy; 2026 Dr. Sisir Kumar Rajbongshi. All Rights Reserved.</p>
-    <p>Designed for academic communication, research visibility and student support.</p>
+    <p>Academic Website | Research • Teaching • Innovation</p>
   </footer>
 
   <script>
@@ -770,52 +485,22 @@
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) html.setAttribute("data-theme", savedTheme);
 
-    function setThemeIcon() {
-      const dark = html.getAttribute("data-theme") === "dark";
-      themeToggle.innerHTML = dark ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+    function setIcon() {
+      themeToggle.innerHTML = html.getAttribute("data-theme") === "dark"
+        ? '<i class="fa-solid fa-sun"></i>'
+        : '<i class="fa-solid fa-moon"></i>';
     }
-    setThemeIcon();
+    setIcon();
 
     themeToggle.addEventListener("click", () => {
       const dark = html.getAttribute("data-theme") === "dark";
       html.setAttribute("data-theme", dark ? "light" : "dark");
       localStorage.setItem("theme", dark ? "light" : "dark");
-      setThemeIcon();
+      setIcon();
     });
 
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
-    menuToggle.addEventListener("click", () => navLinks.classList.toggle("open"));
-    navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => navLinks.classList.remove("open")));
-
-    const buttons = document.querySelectorAll(".filter-buttons button");
-    const pubs = document.querySelectorAll(".pub-item");
-    const pubSearch = document.getElementById("pubSearch");
-    let currentFilter = "all";
-
-    function filterPublications() {
-      const q = pubSearch.value.toLowerCase().trim();
-      pubs.forEach(pub => {
-        const categoryMatch = currentFilter === "all" || pub.dataset.category.includes(currentFilter);
-        const searchMatch = pub.innerText.toLowerCase().includes(q);
-        pub.style.display = categoryMatch && searchMatch ? "block" : "none";
-      });
-    }
-
-    buttons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        buttons.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        currentFilter = btn.dataset.filter;
-        filterPublications();
-      });
-    });
-
-    pubSearch.addEventListener("input", filterPublications);
-
-    const backTop = document.getElementById("backTop");
-    window.addEventListener("scroll", () => {
-      backTop.style.display = window.scrollY > 600 ? "grid" : "none";
+    document.getElementById("menuToggle").addEventListener("click", () => {
+      document.getElementById("navLinks").classList.toggle("open");
     });
   </script>
 </body>
