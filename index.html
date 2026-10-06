@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Dr. Sisir Kumar Rajbongshi | Computer Science Academician</title>
-  <meta name="description" content="Official academic website of Dr. Sisir Kumar Rajbongshi, Assistant Professor (Senior Scale, Stage-II) & Head, Department of Computer Science, PDUAM Amjonga." />
+  <meta name="description" content="Official academic website of Dr. Sisir Kumar Rajbongshi, Assistant Professor (Senior Scale, Stage-II), Department of Computer Science, PDUAM Amjonga." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -353,6 +353,16 @@
       .hero-actions { flex-direction: column; }
       .section { padding: 1.2rem; }
     }
+
+    .book-promo { display: grid; grid-template-columns: 220px 1fr; gap: 2rem; align-items: center; }
+    .book-promo img { width: 100%; border-radius: 10px; box-shadow: 0 18px 40px rgba(0,0,0,.25); }
+    .book-promo ul { margin: .8rem 0 1.2rem 1.1rem; color: var(--muted); }
+    .book-promo li { margin: .25rem 0; }
+    .book-price { display: inline-block; background: var(--gold); color: #fff; font-weight: 800; border-radius: 999px; padding: .3rem .9rem; margin-bottom: .6rem; }
+    .book-actions { display: flex; flex-wrap: wrap; gap: .7rem; }
+    .book-actions .btn { border: 1px solid var(--border); }
+    .book-note { color: var(--muted); font-size: .9rem; margin-top: .8rem; }
+    @media (max-width: 720px) { .book-promo { grid-template-columns: 1fr; } .book-promo img { max-width: 220px; margin: 0 auto; } }
   </style>
 </head>
 
@@ -391,7 +401,7 @@
       <div>
         <div class="eyebrow"><i class="fa-solid fa-graduation-cap"></i> Computer Science Academician</div>
         <h1>Dr. Sisir Kumar Rajbongshi <span class="assamese">ড° শিশিৰ কুমাৰ ৰাজবংশী</span></h1>
-        <p class="hero-subtitle">Assistant Professor (Senior Scale, Stage-II) & Head, Department of Computer Science, Pandit Deendayal Upadhyaya Adarsha Mahavidyalaya (PDUAM), Amjonga, Assam.</p>
+        <p class="hero-subtitle">Assistant Professor (Senior Scale, Stage-II), Department of Computer Science, Pandit Deendayal Upadhyaya Adarsha Mahavidyalaya (PDUAM), Amjonga, Assam.</p>
         <p class="hero-motto">Bridging Teaching, Research, Innovation and Technology for Sustainable Higher Education.</p>
 
         <div class="hero-actions">
@@ -424,6 +434,29 @@
         <div class="stat"><strong>500+</strong><span>Students Taught</span></div>
         <div class="stat"><strong>3</strong><span>Patents / IPR</span></div>
         <div class="stat"><strong>14+</strong><span>Books & Chapters</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="c-book">
+      <p class="kicker">New Book · 2026</p>
+      <h2>Introduction to C&#8209;Programming</h2>
+      <div class="book-promo">
+        <img src="c-book-cover.png" alt="Cover of Introduction to C-Programming by Dr. Sisir Kumar Rajbongshi">
+        <div>
+          <span class="book-price">E-book · ₹30 only</span>
+          <p class="lead">Written for the Gauhati University FYUGP syllabus (B.Sc. 1st Semester, Major &amp; Minor · COM0100104MJ / COM0101004MN), in a simple story style for first-time programmers.</p>
+          <ul>
+            <li>All 6 units of the syllabus, explained step by step</li>
+            <li>130+ programs, every one tested with GCC</li>
+            <li>All 30 syllabus practicals solved</li>
+            <li>2025 question paper with full solutions and a model question paper</li>
+          </ul>
+          <div class="book-actions">
+            <a class="btn" href="C-Book-Preview.pdf" target="_blank"><i class="fa-solid fa-eye"></i> Free Preview (37 pages)</a>
+            <a class="btn primary" href="https://forms.gle/CET7Je3Td9eCWjyp9" target="_blank"><i class="fa-solid fa-cart-shopping"></i> Order the Full Book</a>
+          </div>
+          <p class="book-note">235 pages · ISBN 978-93-345-4161-8 · Coming soon on Google Play Books</p>
+        </div>
       </div>
     </section>
 
